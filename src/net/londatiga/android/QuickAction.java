@@ -108,7 +108,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	 * @param id Layout resource id
 	 */
 	public void setRootViewId(int id) {
-		mRootView	= (ViewGroup) mInflater.inflate(id, null);
+		mRootView	= (ViewGroup) mInflater.inflate(id, mTrack, true);
 		mTrack 		= (ViewGroup) mRootView.findViewById(R.id.tracks);
 
 		mArrowDown 	= (ImageView) mRootView.findViewById(R.id.arrow_down);
