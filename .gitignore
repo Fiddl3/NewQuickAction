@@ -1,3 +1,9 @@
 bin/
 /gen
 /local.properties
+
+.idea*/
+target/
+.classpath
+.project
+.iml

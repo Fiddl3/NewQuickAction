@@ -13,13 +13,13 @@ import android.graphics.Bitmap;
  *
  */
 public class ActionItem {
-	private Drawable icon;
-	private Bitmap thumb;
-	private String title;
-	private int actionId = -1;
+    private Drawable icon;
+    private Bitmap thumb;
+    private String title;
+    private int actionId = -1;
     private boolean selected;
     private boolean sticky;
-	
+
     /**
      * Constructor
      * 
@@ -68,43 +68,43 @@ public class ActionItem {
     public ActionItem(int actionId, Drawable icon) {
         this(actionId, null, icon);
     }
-	
-	/**
-	 * Set action title
-	 * 
-	 * @param title action title
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	/**
-	 * Get action title
-	 * 
-	 * @return action title
-	 */
-	public String getTitle() {
-		return this.title;
-	}
-	
-	/**
-	 * Set action icon
-	 * 
-	 * @param icon {@link Drawable} action icon
-	 */
-	public void setIcon(Drawable icon) {
-		this.icon = icon;
-	}
-	
-	/**
-	 * Get action icon
-	 * @return  {@link Drawable} action icon
-	 */
-	public Drawable getIcon() {
-		return this.icon;
-	}
-	
-	 /**
+
+    /**
+     * Set action title
+     *
+     * @param title action title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Get action title
+     *
+     * @return action title
+     */
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Set action icon
+     *
+     * @param icon {@link Drawable} action icon
+     */
+    public void setIcon(Drawable icon) {
+        this.icon = icon;
+    }
+
+    /**
+     * Get action icon
+     * @return  {@link Drawable} action icon
+     */
+    public Drawable getIcon() {
+        return this.icon;
+    }
+
+     /**
      * Set action id
      * 
      * @param actionId  Action id for this action
@@ -136,39 +136,39 @@ public class ActionItem {
         return sticky;
     }
     
-	/**
-	 * Set selected flag;
-	 * 
-	 * @param selected Flag to indicate the item is selected
-	 */
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
-	
-	/**
-	 * Check if item is selected
-	 * 
-	 * @return true or false
-	 */
-	public boolean isSelected() {
-		return this.selected;
-	}
+    /**
+     * Set selected flag;
+     *
+     * @param selected Flag to indicate the item is selected
+     */
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 
-	/**
-	 * Set thumb
-	 * 
-	 * @param thumb Thumb image
-	 */
-	public void setThumb(Bitmap thumb) {
-		this.thumb = thumb;
-	}
-	
-	/**
-	 * Get thumb image
-	 * 
-	 * @return Thumb image
-	 */
-	public Bitmap getThumb() {
-		return this.thumb;
-	}
+    /**
+     * Check if item is selected
+     *
+     * @return true or false
+     */
+    public boolean isSelected() {
+        return this.selected;
+    }
+
+    /**
+     * Set thumb
+     *
+     * @param thumb Thumb image
+     */
+    public void setThumb(Bitmap thumb) {
+        this.thumb = thumb;
+    }
+
+    /**
+     * Get thumb image
+     *
+     * @return Thumb image
+     */
+    public Bitmap getThumb() {
+        return this.thumb;
+    }
 }
