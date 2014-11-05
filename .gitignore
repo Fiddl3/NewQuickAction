@@ -1,12 +1,10 @@
-bin/
-/gen
-/local.properties
+.gradle/
+.idea/
+build/
+gradle/
 
-.idea*/
-target/
-.classpath
-.project
-.iml
-
-project.properties
+gradlew*
+local.properties
+*.iml
+*.backup
 
