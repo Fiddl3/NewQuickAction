@@ -1,81 +1,100 @@
 package net.londatiga.android;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.graphics.Bitmap;
 
 /**
  * Action item, displayed as menu with icon and text.
- * 
- * @author Lorensius. W. L. T <lorenz@londatiga.net>
- * 
- * Contributors:
- * - Kevin Peck <kevinwpeck@gmail.com>
  *
+ * @author Lorensius. W. L. T <lorenz@londatiga.net>
+ *         <p/>
+ *         Contributors:
+ *         - Kevin Peck <kevinwpeck@gmail.com>
  */
 public class ActionItem {
     private Drawable icon;
-    private Bitmap thumb;
     private String title;
     private int actionId = -1;
     private boolean selected;
     private boolean sticky;
 
+
     /**
      * Constructor
-     * 
-     * @param actionId  Action id for case statements
-     * @param title     Title
-     * @param icon      Icon to use
+     *
+     * @param actionId Action id of the item
+     * @param title    Text to show for the item
+     */
+    public ActionItem(int actionId, String title) {
+        this(actionId, title, null);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param actionId Action id for case statements
+     * @param title    Title
+     * @param icon     Icon to use
      */
     public ActionItem(int actionId, String title, Drawable icon) {
         this.title = title;
         this.icon = icon;
         this.actionId = actionId;
     }
-    
+
     /**
      * Constructor
+     *
+     * @param context    Application context
+     * @param actionId   Action id for case statements
+     * @param titleResId Title Resource ID
      */
-    public ActionItem() {
-        this(-1, null, null);
-    }
-    
-    /**
-     * Constructor
-     * 
-     * @param actionId  Action id of the item
-     * @param title     Text to show for the item
-     */
-    public ActionItem(int actionId, String title) {
-        this(actionId, title, null);
-    }
-    
-    /**
-     * Constructor
-     * 
-     * @param icon {@link Drawable} action icon
-     */
-    public ActionItem(Drawable icon) {
-        this(-1, null, icon);
-    }
-    
-    /**
-     * Constructor
-     * 
-     * @param actionId  Action ID of item
-     * @param icon      {@link Drawable} action icon
-     */
-    public ActionItem(int actionId, Drawable icon) {
-        this(actionId, null, icon);
+    public ActionItem(Context context, int actionId, int titleResId) {
+        this.title = context.getResources().getString(titleResId);
+        this.icon = null;
+        this.actionId = actionId;
     }
 
     /**
-     * Set action title
+     * Constructor
      *
-     * @param title action title
+     * @param context    Application context
+     * @param actionId   Action id for case statements
+     * @param titleResId Title Resource ID
+     * @param iconResId  Icon Resource ID
      */
-    public void setTitle(String title) {
+    public ActionItem(Context context, int actionId, int titleResId, int iconResId) {
+        this.title = context.getResources().getString(titleResId);
+        this.icon = context.getResources().getDrawable(iconResId);
+        this.actionId = actionId;
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context   Application context
+     * @param actionId  Action id for case statements
+     * @param title     Title
+     * @param iconResId Icon Resource ID
+     */
+    public ActionItem(Context context, int actionId, String title, int iconResId) {
         this.title = title;
+        this.icon = context.getResources().getDrawable(iconResId);
+        this.actionId = actionId;
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context    Application context
+     * @param actionId   Action id for case statements
+     * @param titleResId Title Resource ID
+     * @param icon       Icon
+     */
+    public ActionItem(Context context, int actionId, int titleResId, Drawable icon) {
+        this.title = context.getResources().getString(titleResId);
+        this.icon = icon;
+        this.actionId = actionId;
     }
 
     /**
@@ -88,6 +107,24 @@ public class ActionItem {
     }
 
     /**
+     * Set action title
+     *
+     * @param title action title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Get action icon
+     *
+     * @return {@link Drawable} action icon
+     */
+    public Drawable getIcon() {
+        return this.icon;
+    }
+
+    /**
      * Set action icon
      *
      * @param icon {@link Drawable} action icon
@@ -97,52 +134,35 @@ public class ActionItem {
     }
 
     /**
-     * Get action icon
-     * @return  {@link Drawable} action icon
-     */
-    public Drawable getIcon() {
-        return this.icon;
-    }
-
-     /**
-     * Set action id
-     * 
-     * @param actionId  Action id for this action
-     */
-    public void setActionId(int actionId) {
-        this.actionId = actionId;
-    }
-    
-    /**
-     * @return  Our action id
+     * @return Our action id
      */
     public int getActionId() {
         return actionId;
     }
-    
+
     /**
-     * Set sticky status of button
-     * 
-     * @param sticky  true for sticky, pop up sends event but does not disappear
+     * Set action id
+     *
+     * @param actionId Action id for this action
      */
-    public void setSticky(boolean sticky) {
-        this.sticky = sticky;
+    public void setActionId(int actionId) {
+        this.actionId = actionId;
     }
-    
+
     /**
-     * @return  true if button is sticky, menu stays visible after press
+     * @return true if button is sticky, menu stays visible after press
      */
     public boolean isSticky() {
         return sticky;
     }
-    
+
     /**
-     * Set selected flag;
+     * Set sticky status of button
      *
-     * @param selected Flag to indicate the item is selected
+     * @param sticky true for sticky, pop up sends event but does not disappear
      */
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public void setSticky(boolean sticky) {
+        this.sticky = sticky;
     }
 
     /**
@@ -155,20 +175,12 @@ public class ActionItem {
     }
 
     /**
-     * Set thumb
+     * Set selected flag;
      *
-     * @param thumb Thumb image
+     * @param selected Flag to indicate the item is selected
      */
-    public void setThumb(Bitmap thumb) {
-        this.thumb = thumb;
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
-    /**
-     * Get thumb image
-     *
-     * @return Thumb image
-     */
-    public Bitmap getThumb() {
-        return this.thumb;
-    }
 }

@@ -15,6 +15,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 21
+
         versionName '1.4'
         versionCode 4
         applicationId 'net.londatiga.newquickaction'
